@@ -1,0 +1,295 @@
+@mixin button {
+	background-color: $buttonColor;
+	color: white;
+	width: 70px;
+	height: 20px;
+	border-radius: 2px;
+	font-size: map-get($whichFont, mainFont);
+	font-weight: bold;
+	border-color: transparent;
+}
+
+@mixin link($color: white) {
+	color: $color;
+	font-size: map-get($whichFont,  linkFont);
+	font-family: 'Hind', sans-serif;
+
+	&:hover {
+		color: darken($color, 50%);
+	}
+
+	&:active {
+		color: #4E5FE3;
+	}
+}
+
+@mixin logo {
+	display: flex;
+	color: $mainFontColor;
+	font-size: map-get($whichFont, logoHeadFont);
+	font-weight: bold;
+	font-family: 'Hind', sans-serif;
+
+	img {
+		width: 20px;
+		height: 20px;
+	}
+
+	p {
+		margin: 3px 0 0 5px;
+		line-height: 0.8em;
+
+		span {
+			display: block;
+			font-size: map-get($whichFont, logoFootFont);
+			text-align: center;
+		}
+	}
+}
+
+@mixin highlighter($width, $height, $left, $bottom) {
+	z-index: 1;
+
+	&:after{
+		width: $width;
+		height: $height;
+		left: $left;
+		bottom: $bottom;
+		content: "";
+		background-color: $highlighterColor;
+		position: absolute;
+		background-color: $highlighterColor;
+		z-index: -1;
+	}
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box; 
+}
+
+$whichFont: ( 
+	footerFont: 4pt,
+	logoFootFont: 5pt,
+	mainFont: 6pt,
+	linkFont: 7pt,
+	logoHeadFont: 10pt,
+	hugeFont: 25pt
+	);
+
+header.header {
+	background-color: $mainBackgroundColor;
+	
+
+	.header-wrap {
+		background-image: $bgHeaderImage;
+		min-height: 350px;
+		background-size: cover;
+		background-position: center;
+		border-radius: 0 0 300px/160px 0;
+		background-repeat: no-repeat;
+		position: relative;
+
+		.landing-logo {
+
+			@include logo;
+			position: absolute;
+			left: 10%;
+			top: 3%;
+		}
+		.header_heading {
+			color: $mainFontColor;
+			width: 20%;
+			min-width: 250px;
+			font-size: map-get($whichFont, hugeFont);
+			font-weight: bold;
+			font-family: 'Hind', sans-serif;
+			margin: 0 0 15px 0;
+			line-height: 1em;
+			position: absolute;
+			left: 10%;
+			top: 20%;
+
+			@include highlighter(140px, 27px, 1px, 1px);
+		}
+		.header_text {
+			white-space: pre-line;
+			color: $mainFontColor;
+			width: 40%;
+			font-size: map-get($whichFont, mainFont);
+			font-family: 'Hind', sans-serif;
+			line-height: $textLineHeight;
+			position: absolute;
+			left: 10%;
+			top: 48%;
+		}
+		div {
+			color: white;
+			position: absolute;
+			left: 10%;
+			top: 70%;
+
+			.header_button {
+				@include button;
+				margin-right: 63px;
+			}
+			.login {
+				@include link;
+			}
+		}
+	}
+}
+
+main.section {
+	background-color: $mainBackgroundColor;
+	position: relative;
+	padding: 20px 0 90px;
+
+	.section_text {
+		position: absolute;
+		top: 10px;
+		left: 39%;
+		color: $mainFontColor;
+		font-family: 'Hind', sans-serif;
+		text-align: center;
+		margin-bottom: 10px;
+
+		@include highlighter(71px, 22px, 87px, 7px);
+	}
+
+	.section_card_wrap {
+		margin: 15px auto;
+
+		.section_card {
+			width: 600px;
+			height: 150px;
+			background-color: $sectionCardBg;
+			margin: 10px auto;
+			border-radius: $borderRadius;
+			position: relative;
+
+			img {
+				margin: 10px auto 10px 10px;
+				height: 130px;
+				border-radius: $borderRadius;
+			}
+			.section_card_right_container {
+				display: inline-block;
+				width: 50%;
+				height: 100%;
+				position: absolute;
+				right: 50px;
+
+				.section_card_heading {
+					color: white;
+					font-size: map-get($whichFont, logoHeadFont);
+					font-family: 'Source Sans Pro', sans-serif;
+					text-align: center;
+					position: absolute;
+					top: 23%;
+					right: 40%;
+				}
+
+				.section_card_text {
+					color: $sectionCardRightFontColor;
+					font-size: map-get($whichFont, mainFont);
+					font-family: 'Hind', sans-serif;
+					line-height: $textLineHeight;
+					width: 95%;
+					margin-left: 5px;
+					position: absolute;
+					bottom: 28%;
+					text-align: justify;
+				}
+
+				.section_link {
+					@include link($sectionCardRightFontColor);
+					position: absolute;
+					right: 50%;
+					margin-right: -25px;
+					bottom: 15%;
+				}
+			}
+		}
+	}
+
+	.section_banner {
+		width: 650px;
+		height: 70px;
+		border-radius: $borderRadius;
+		background: -webkit-linear-gradient(45deg, $buttonColor, $rightGradientColor);
+		position: absolute;
+		left: 50%;
+		margin-left: -325px;
+		bottom: -35px;
+
+		.section_banner_text_wrap {
+			display: inline-block;
+			position: relative;
+
+			.section_banner_heading {
+				color: $mainFontColor;
+				font-size: map-get($whichFont, logoHeadFont); 
+				font-family: 'Hind', sans-serif;
+				font-weight: bold;
+				margin: 15px auto auto 70px;
+				z-index: -99;
+				// position: absolute;
+
+				@include highlighter(28px, 20px, 125px, 20px);
+			}
+
+			.section_banner_text {
+				color: $sectionCardRightFontColor;
+				font-size: map-get($whichFont, mainFont);
+				font-family: 'Hind', sans-serif;
+				margin: 5px auto auto 70px;
+			}
+		}
+
+		.section_banner_button {
+			@include button;
+			float: right;
+			margin-right: 70px;
+			margin-top: 25px;
+		}
+	}
+}
+.footer {
+	background-color: $sectionCardBg;
+	padding: 20px;
+
+	.footer-wrap {
+		padding-top: 55px;
+		position: relative;
+
+		.landing-logo {
+			@include logo;
+			color: white;
+			position: absolute;
+			left: 10%;
+			top: 56%;
+		}
+
+		p.footer_text {
+			width: 16%;
+			font-size: map-get($whichFont, footerFont);
+			font-family: 'Hind', sans-serif;
+			color: $sectionCardRightFontColor;
+			line-height: $textLineHeight;
+			position: absolute;
+			left: 40%;
+			bottom: 22%;
+		}
+
+		.footer-cr {
+			font-size: map-get($whichFont, mainFont);
+			font-family: 'Hind', sans-serif;
+			color: $sectionCardRightFontColor;
+			position: absolute;
+			right: 10%;
+			bottom: 30%;
+		}
+	}
+}
