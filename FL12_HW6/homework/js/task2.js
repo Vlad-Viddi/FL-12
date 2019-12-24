@@ -4,7 +4,7 @@ for (let i = 0; i < 3; i++) {
 	sides[i] = prompt('please input value of "a" side of a triangle');
 	
 
-	if (isNaN(sides[i]) || sides[i] === '' || sides[i] === undefined || sides[i]) {
+	if (isNaN(sides[i]) || sides[i] === '' || sides[i] === undefined || sides[i] || sides[i] === null) {
 		alert('input values should be ONLY numbers')
 		throw 'stop';
 	} else if (parseInt(sides[i]) <= 0) {
@@ -26,5 +26,3 @@ if (sides[0] + sides[1] < sides[2] || sides[2] + sides[1] < sides[0] || sides[0]
 } else {
 	console.log('Scalene triangle');
 }
-
-
