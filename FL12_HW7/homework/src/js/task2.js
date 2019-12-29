@@ -30,13 +30,13 @@ if (!!playGameResult === false) {
 				max += 4;
 				maxPrize *= round;
 				alert('Congratulation, you won!\r\nYour prize is: ' + totalPrize + ' $.');
-				playAgain = confirm('1 Do you wanna continue?');
+				playAgain = confirm('Do you wanna continue?');
 				break;
 			}
 		}
 		if (attemptsLeft === 0) {
 			alert('Thank you for your participation!\r\nYour prize is: ' + totalPrize + ' $.');
-			playAgain = confirm('2 off for loop -  Do you wanna continue?');
+			playAgain = confirm('Do you wanna continue?');
 			round = 0;
 			max = 9;
 		}
