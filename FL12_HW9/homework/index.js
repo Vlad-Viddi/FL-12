@@ -3,7 +3,7 @@
 function convert(...args) {
 	let initialArray = [...args];
 	let finalArray = [];
-	for (let i = 0; i < initialArray.length; i++) { //for (const i of initialArray) {
+	for (let i = 0; i < initialArray.length; i++) {
 		if(typeof initialArray[i] === 'number') {
 			finalArray.push(String(initialArray[i]))
 		} else if (typeof initialArray[i] === 'string') {
@@ -124,31 +124,3 @@ function formatDate(inputDate) {
 }
 formatDate(new Date('6/15/2018 09:15:00')) // "2018/6/15 09:15"
 formatDate(new Date()) // "2020/1/7 12:56" // gets current local time
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
