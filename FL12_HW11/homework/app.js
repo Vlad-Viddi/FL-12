@@ -56,6 +56,6 @@ function toggleOpenClose() {
   }
 }
 
-function draw_DOM_Tree (structure, parent) {
-  
-}
+//function draw_DOM_Tree (structure, parent) {
+//  
+//}
