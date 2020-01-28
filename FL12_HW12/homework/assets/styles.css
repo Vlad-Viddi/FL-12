@@ -1,0 +1,21 @@
+* {
+	margin: 0;
+}
+.add-new-button {
+	width: 100px;
+	height: 40px;
+	float: right;
+	border-radius: 10px;
+	font: bold italic 15px serif;
+	background-color: #ccc;
+	margin: 50px;
+}
+.add-new-screen, .modify-screen {
+	display: none;
+	margin: 50px auto;
+	margin-left: auto;
+    margin-right: auto;
+}
+.buttons-set-line, .modify-buttons-set-line {
+	margin-top: 20px;
+}
